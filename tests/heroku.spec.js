@@ -10,4 +10,24 @@ test('Add/Remove Elements', async ({ page }) => {
   await page.getByRole('button', { name: "Add Element"}).click();
   await page.getByRole('button', { name: "Delete"}).click();
 });
+
+test('Checkboxes', async ({ page }) => {
+  await page.getByRole('link', { name: "Checkboxes"}).click();
+
+  const check1 = page.getByRole('checkbox').nth(0);
+  const check2 = page.getByRole('checkbox').nth(1);
+
+  await check1.check();
+  await check2.check();
+
+  await expect(check1).toBeChecked();
+  await expect(check2).toBeChecked();
+
+  const header1 = page.getByRole('heading', { name: "Checkboxes"});
+
+  await expect(header1).toBeVisible()
+
+  await expect(page).toHaveURL('https://the-internet.herokuapp.com/checkboxes');
+});
+
 });
