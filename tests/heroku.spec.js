@@ -34,4 +34,11 @@ test('Checkboxes', async ({ page }) => {
   await expect(page).toHaveURL('https://the-internet.herokuapp.com/checkboxes');
 });
 
+  test('Drag and Drop', async ({ page }) => {
+    await page.getByRole('link', { name: "Drag and Drop"}).click();
+
+    await page.locator("#column-a").dragTo(page.locator("#column-b"));
+
+    await expect(page.getByRole('heading', { name: "Drag and Drop"})).toBeVisible();
+  });
 });
