@@ -6,7 +6,7 @@ test.describe('Parabank', () => {
     });
 
     test('About Us', async({ page }) => {
-        await page.getByRole('link', { name: "About Us"} ).first().click();
+        await page.getByRole('link', { name: "About Us"} ).nth(0).click();
 
         await expect(page.getByRole('heading', { name: "ParaSoft Demo Website"})).toBeVisible();
     });
