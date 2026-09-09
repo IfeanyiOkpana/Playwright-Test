@@ -39,7 +39,14 @@ test.describe('Forms', () => {
         await expect(female).not.toBeChecked();
         
         await expect(page.getByRole('heading', { name: "Student Registration Form"})).toBeVisible();
-      
+
+        const mobileNum = page.getByPlaceholder("Mobile Number");
+        
+        await mobileNum.fill("0123456789");
+        
+        await expect(mobileNum).toBeVisible();
+        await expect(mobileNum).toHaveValue("0123456789");
+        
    
         
      });
