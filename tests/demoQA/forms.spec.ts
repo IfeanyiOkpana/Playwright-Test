@@ -11,10 +11,14 @@ test.describe('Forms', () => {
         
         //await page.getByRole('link', { name: "Practice Form", exact: true}).click();
 
+        //Fill first name and last name
         await page.locator('#firstName').fill("Mike");
         await page.locator('#lastName').fill("Stone");
 
+        //Fill email address
         await page.locator('#userEmail').fill("mike.stone@example.com");
+       
+        //Choose Gender
         const male = page.getByRole("radio", { name: "Male", exact: true});
         const female = page.getByRole("radio", { name: "Female", exact: true});
         const other = page.getByRole("radio", { name: "Other", exact: true});
@@ -40,14 +44,17 @@ test.describe('Forms', () => {
         
         await expect(page.getByRole('heading', { name: "Student Registration Form"})).toBeVisible();
 
+        //Select Mobile Number
         const mobileNum = page.getByPlaceholder("Mobile Number");
         
         await mobileNum.fill("0123456789");
         
+        
         await expect(mobileNum).toBeVisible();
         await expect(mobileNum).toHaveValue("0123456789");
         
-   
-        
+        //Select Date of Birth
+        const dob = page.locator('#dateOfBirthInput');
+        await dob.click();
      });
 });
