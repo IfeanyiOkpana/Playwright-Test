@@ -112,5 +112,32 @@ test.describe('Forms', () => {
         await expect(address).toHaveValue("103 Walton Road");
         await expect(address).toBeEnabled();
 
-     });
+        //Select State and City
+        const state = page.locator("#state");
+       
+
+        await expect(state).toBeVisible();
+        await expect(state).toBeEnabled();
+        
+        await state.click();
+        
+        const ncrState = page.getByText("NCR", { exact: true });
+        await ncrState.click();
+
+        await expect(ncrState).toHaveText("NCR");
+
+        const city = page.locator("#city");
+
+        await expect(city).toBeVisible();
+        await expect(city).toBeEnabled();
+
+        await city.click();
+
+        const Gurgaon = page.getByText("Gurgaon", { exact: true });
+        await Gurgaon.click();
+
+        await expect(Gurgaon).toHaveText("Gurgaon");
+
+        
+    });
 });
