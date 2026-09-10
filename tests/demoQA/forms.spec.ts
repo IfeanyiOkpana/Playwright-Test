@@ -68,7 +68,18 @@ test.describe('Forms', () => {
         //Select Day
         await page.locator(".react-datepicker__day.react-datepicker__day--015:not(.react-datepicker__day--outside-month)").click();
 
-        //Date of birth assertion
+        //Date of Birth Assertion
         await expect(dob).toHaveValue("15 Sep 2015");
+
+        //Fill Subjects Field
+        const subject = page.locator("#subjectsInput");
+        await subject.fill("Maths");
+        //await subject.fill("Geography");
+
+        //Assertions
+        await expect(subject).toBeVisible();
+        await expect(subject).toBeEnabled();
+        await expect(subject).toHaveValue("Maths");
+
      });
 });
