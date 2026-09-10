@@ -102,5 +102,15 @@ test.describe('Forms', () => {
         await expect(uploadImage).toBeAttached();
         await expect(uploadImage).toBeEnabled();
         await expect(uploadImage).toHaveValue(/image\.jpg/);
+
+        //Fill Current Address Field
+        const address = page.getByPlaceholder("Current Address");
+        await address.fill("103 Walton Road");
+
+        //Assertion 
+        await expect(address).toBeVisible();
+        await expect(address).toHaveValue("103 Walton Road");
+        await expect(address).toBeEnabled();
+
      });
 });
