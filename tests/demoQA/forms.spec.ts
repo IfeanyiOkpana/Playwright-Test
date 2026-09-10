@@ -138,6 +138,12 @@ test.describe('Forms', () => {
 
         await expect(Gurgaon).toHaveText("Gurgaon");
 
-        
+        //Submit
+        const submitBtn = page.getByRole("button", { name: "Submit"});
+
+        await expect(submitBtn).toBeVisible();
+        await expect(submitBtn).toBeEnabled();
+
+        await submitBtn.click();
     });
 });
