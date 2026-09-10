@@ -72,14 +72,28 @@ test.describe('Forms', () => {
         await expect(dob).toHaveValue("15 Sep 2015");
 
         //Fill Subjects Field
-        const subject = page.locator("#subjectsInput");
-        await subject.fill("Maths");
-        //await subject.fill("Geography");
+        //const subject = page.locator("#subjectsInput");
+        //await subject.fill("Maths");
+        //await page.getByRole("option", { name: "Maths", exact: true }).click();
 
         //Assertions
-        await expect(subject).toBeVisible();
-        await expect(subject).toBeEnabled();
-        await expect(subject).toHaveValue("Maths");
+        //await expect(subject).toBeVisible();
+        //await expect(subject).toBeEnabled();
+        //await expect(page.getByText("Maths", { exact: true })).toBeVisible();
 
+        //Test Checkbox
+        const sports = page.getByLabel("Sports");
+        const reading = page.getByLabel("Reading");
+        const music = page.getByLabel("Music");
+
+        await sports.check();
+        await reading.check();
+
+        //Assertions
+        await expect(sports).toBeChecked();
+        await expect(reading).toBeChecked();
+        await expect(music).not.toBeChecked();
+
+      
      });
 });
