@@ -94,6 +94,13 @@ test.describe('Forms', () => {
         await expect(reading).toBeChecked();
         await expect(music).not.toBeChecked();
 
-      
+        //Upload Image
+        const uploadImage = page.locator("#uploadPicture");
+        await uploadImage.setInputFiles('tests/assets/image.jpg');
+
+        //Assertions
+        await expect(uploadImage).toBeAttached();
+        await expect(uploadImage).toBeEnabled();
+        await expect(uploadImage).toHaveValue(/image\.jpg/);
      });
 });
