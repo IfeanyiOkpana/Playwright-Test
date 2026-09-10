@@ -53,8 +53,22 @@ test.describe('Forms', () => {
         await expect(mobileNum).toBeVisible();
         await expect(mobileNum).toHaveValue("0123456789");
         
-        //Select Date of Birth
+        //Select Date of Birth Dropdown
         const dob = page.locator('#dateOfBirthInput');
         await dob.click();
+
+        //Select Year
+        const year = page.locator('.react-datepicker__year-select');
+        await year.selectOption("2015");
+
+        //Select Month
+        const month = page.locator('.react-datepicker__month-select');
+        await month.selectOption("September");
+
+        //Select Day
+        await page.locator(".react-datepicker__day.react-datepicker__day--015:not(.react-datepicker__day--outside-month)").click();
+
+        //Date of birth assertion
+        await expect(dob).toHaveValue("15 Sep 2015");
      });
 });
