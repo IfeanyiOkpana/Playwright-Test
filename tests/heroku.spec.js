@@ -41,4 +41,16 @@ test('Checkboxes', async ({ page }) => {
 
     await expect(page.getByRole('heading', { name: "Drag and Drop"})).toBeVisible();
   });
+
+  test('File Upload', async ({ page }) => { 
+    await page.getByRole('link', { name: "File Upload"}).click();
+    const upload = page.locator("#file-upload");
+    await upload.setInputFiles('tests/assets/image.jpg');
+
+    await expect(upload).toBeVisible();
+    await expect(upload).toBeEnabled()
+
+    const btn = page.locator("#file-submit");
+    await btn.click();
+  });
 });
