@@ -53,4 +53,15 @@ test('Checkboxes', async ({ page }) => {
     const btn = page.locator("#file-submit");
     await btn.click();
   });
+
+  //Dropdown Functionality
+  test('Dropdown Functionality', async ({ page }) => {
+    await page.getByRole('link', { name: "Dropdown"}).click();
+    const dropdown = page.locator("#dropdown");
+    await dropdown.selectOption("Option 1");
+
+    await expect(page.getByRole("heading", { name: "Dropdown List"})).toBeVisible();
+    await expect(dropdown).toBeVisible();
+    await expect(dropdown).toBeEnabled();
+  });
 });
