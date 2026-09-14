@@ -10,7 +10,8 @@ test.describe('Parabank', () => {
 
         await expect(page.getByRole('heading', { name: "ParaSoft Demo Website"})).toBeVisible();
     });
-    test('Test Make Deposits Link', async ({ page }) => {
+
+    test('Make Deposits Link', async ({ page }) => {
         await page.getByRole('link', { name: "Make Deposits"}).click();
-    })
+    });
 });
