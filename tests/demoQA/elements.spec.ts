@@ -32,5 +32,13 @@ test.describe('Elements', () => {
 
         await expect(permanentAdress).toBeVisible();
         await expect(permanentAdress).toBeEnabled();
-    })
+    });
+
+    test('submit', async ({ page }) => {
+        const submitBtn = page.locator("#submit");
+
+        await submitBtn.click();
+
+        await expect(submitBtn).toBeVisible();
+    });
 });
