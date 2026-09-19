@@ -25,5 +25,12 @@ test.describe('Elements', () => {
         await expect(currentAddress).toBeVisible();
         await expect(currentAddress).toBeEnabled();
         await expect(page.locator("#currentAddress-label")).toBeVisible();
+    });
+    test('Tested Permanent Adress', async ({ page }) => {
+        const permanentAdress = page.locator("#permanentAddress");
+        await permanentAdress.fill("1 Old Park Lane");
+
+        await expect(permanentAdress).toBeVisible();
+        await expect(permanentAdress).toBeEnabled();
     })
 });
