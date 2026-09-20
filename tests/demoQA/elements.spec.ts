@@ -41,4 +41,10 @@ test.describe('Elements', () => {
 
         await expect(submitBtn).toBeVisible();
     });
+
+    test('Checkbox', async ({ page }) => {
+
+    const check1 = page.getByRole('checkbox', { name: 'Select Home', exact: true });
+    
+});
 });
