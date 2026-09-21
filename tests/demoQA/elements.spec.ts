@@ -43,8 +43,10 @@ test.describe('Elements', () => {
     });
 
     test('Checkbox', async ({ page }) => {
+        const check1 = page.locator(".rc-tree-checkbox");
 
-    const check1 = page.getByRole('checkbox', { name: 'Select Home', exact: true });
-    
-});
+        //await expect(check1).toBeVisible();
+        //await expect(check1).toBeEnabled()
+        //await check1.click();
+    });
 });
