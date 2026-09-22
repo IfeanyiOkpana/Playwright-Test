@@ -20,7 +20,7 @@ test.describe('Sauce-Demo-Home', () => {
 
         await expect(greyJacket2).toBeVisible();
 
-        const textDesc = page.getByText("Just a demo site showing off what Sauce can do.");
+        const textDesc = page.getByText(/Just\s+a\s+demo\s+site\s+showing\s+off\s+what\s+Sauce\s+can\s+do./i);
         await expect(textDesc).toBeVisible();
     })
 });
