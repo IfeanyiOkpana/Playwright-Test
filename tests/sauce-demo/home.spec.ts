@@ -11,4 +11,13 @@ test.describe('Sauce-Demo-Home', () => {
 
         await expect(homeLink1).toBeVisible();
     });
+
+    test('Verify image click', async ({ page }) => {
+        const greyJacket = page.getByAltText("Grey jacket");
+        await greyJacket.click();
+
+        const greyJacket2 = page.getByAltText("Product Image");
+
+        await expect(greyJacket2).toBeVisible();
+    })
 });
