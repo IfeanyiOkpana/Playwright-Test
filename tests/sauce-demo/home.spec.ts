@@ -1,4 +1,4 @@
-import { test, expect } from '@playwright/test';
+import { test, expect, Locator } from '@playwright/test';
 
 test.describe('Sauce-Demo-Home', () => {
     test.beforeEach(async ({ page }) => {
@@ -6,17 +6,17 @@ test.describe('Sauce-Demo-Home', () => {
     });
 
     test('Home', async ({ page }) => {
-        const homeLink1 = page.getByRole('link', { name: "Home", exact: true});
+        const homeLink1:Locator = page.getByRole('link', { name: "Home", exact: true});
         await homeLink1.click();
 
         await expect(homeLink1).toBeVisible();
     });
 
     test('Verify image click', async ({ page }) => {
-        const greyJacket = page.getByAltText("Grey jacket");
+        const greyJacket:Locator = page.getByAltText("Grey jacket");
         await greyJacket.click();
 
-        const greyJacket2 = page.getByAltText("Product Image");
+        const greyJacket2:Locator = page.getByAltText("Product Image");
 
         await expect(greyJacket2).toBeVisible();
     })
