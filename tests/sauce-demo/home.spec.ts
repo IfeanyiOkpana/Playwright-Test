@@ -19,5 +19,8 @@ test.describe('Sauce-Demo-Home', () => {
         const greyJacket2:Locator = page.getByAltText("Product Image");
 
         await expect(greyJacket2).toBeVisible();
+
+        const textDesc = page.getByText("Just a demo site showing off what Sauce can do.");
+        await expect(textDesc).toBeVisible();
     })
 });
