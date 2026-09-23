@@ -22,5 +22,9 @@ test.describe('Sauce-Demo-Home', () => {
 
         const textDesc = page.getByText(/Just\s+a\s+demo\s+site\s+showing\s+off\s+what\s+Sauce\s+can\s+do./i);
         await expect(textDesc).toBeVisible();
-    })
+
+        //Verify Page Dropdown Functionality
+        const greyJacketDropdown = page.locator("#product-select-option-0");
+        await greyJacketDropdown.selectOption("Grey jacket");
+    });
 });
