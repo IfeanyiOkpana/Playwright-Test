@@ -29,5 +29,9 @@ test.describe('Sauce-Demo-Home', () => {
 
         await expect(page.getByRole("heading", { name: "Grey jacket"})).toBeVisible();
         await expect(page.locator(".product-price")).toBeVisible();
+
+        //Tested Grey Jacket Add to Cart Functionailty
+        const cartGreyJacket:Locator = page.locator("#add");
+        await cartGreyJacket.click();
     });
 });
