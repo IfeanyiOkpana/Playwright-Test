@@ -33,5 +33,8 @@ test.describe('Sauce-Demo-Home', () => {
         //Tested Grey Jacket Add to Cart Functionailty
         const cartGreyJacket:Locator = page.locator("#add");
         await cartGreyJacket.click();
+
+        const addCart1 = page.getByRole("link", { name: "My Cart"});
+        await addCart1.click();
     });
 });
