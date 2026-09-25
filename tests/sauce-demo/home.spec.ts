@@ -36,5 +36,21 @@ test.describe('Sauce-Demo-Home', () => {
 
         const addCart1 = page.getByRole("link", { name: "My Cart"});
         await addCart1.click();
+
+        //Grey Jacket Cart Assertions
+        //await expect(page.getByAltText("Grey jacket - Grey jacket")).toBeVisible();
+
+        //const greyJacketCart = page.locator("input[type='submit']");
+        
+        //await greyJacketCart.click();
+        //await expect(greyJacketCart).toBeVisible();
     });
+
+    //Verify Catalog
+    test("Verify Catalog", async ({ page }) => {
+        await page.getByRole("link", { name: "Catalog"}).click()
+    
+    //Assertion
+        await expect(page.getByRole("heading", { name: "Products"})).toBeVisible();
+    })
 });
