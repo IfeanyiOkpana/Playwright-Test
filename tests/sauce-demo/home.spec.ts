@@ -57,8 +57,8 @@ test.describe('Sauce-Demo-Home', () => {
         const blackHeels = page.getByAltText("Black heels");
         await blackHeels.click();
     //Assertions
-        //await expect(page.getByRole("heading", { name: "Black heels", exact: true})).toBeVisible();
-        //await expect(page.getByRole("heading", { name: "£45.00", exact: true})).toBeVisible();
+        await expect(page.getByRole("heading", { name: "Black heels", exact: true})).toBeVisible();
+        await expect(page.getByRole("heading", { name: "£45.00", exact: true})).toBeVisible();
     });
 
 });
