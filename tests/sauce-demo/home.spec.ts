@@ -52,5 +52,10 @@ test.describe('Sauce-Demo-Home', () => {
     
     //Assertion
         await expect(page.getByRole("heading", { name: "Products"})).toBeVisible();
-    })
+
+    //Test Image Click Functionality
+        const blackHeels = page.getByAltText("Black heels");
+        await blackHeels.click();
+    });
+
 });
