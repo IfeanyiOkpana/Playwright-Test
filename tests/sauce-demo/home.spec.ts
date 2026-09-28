@@ -26,6 +26,9 @@ test.describe('Sauce-Demo-Home', () => {
         //Verify Page Dropdown Functionality
         const greyJacketDropdown:Locator = page.locator("#product-select-option-0");
         await greyJacketDropdown.selectOption("Grey jacket");
+        /*await greyJacketDropdown.selectOption({index:0});*/
+        //await greyJacketDropdown.selectOption({label:"Grey Jacket"});
+        //await expect(greyJacketDropdown).toHaveCount(1);
 
         await expect(page.getByRole("heading", { name: "Grey jacket"})).toBeVisible();
         await expect(page.locator(".product-price")).toBeVisible();
@@ -59,6 +62,13 @@ test.describe('Sauce-Demo-Home', () => {
     //Assertions
         await expect(page.getByRole("heading", { name: "Black heels", exact: true})).toBeVisible();
         await expect(page.getByRole("heading", { name: "£45.00", exact: true})).toBeVisible();
+    
+    //Select Dropdown
+        const sizeDropdown:Locator = page.locator("#product-select-option-0");
+        await sizeDropdown.selectOption("S");
+
+        //const colorDropdown:Locator = page.locator("#");
+        //await colorDropdown.selectOption("Red")
     });
 
 });
