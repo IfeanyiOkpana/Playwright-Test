@@ -69,6 +69,10 @@ test.describe('Sauce-Demo-Home', () => {
 
         const colorDropdown:Locator = page.locator("#product-select-option-1");
         await colorDropdown.selectOption("Red")
+    
+    //Add to Cart
+        const addCart = page.locator("#add");
+        await addCart.click();
     });
 
 });
