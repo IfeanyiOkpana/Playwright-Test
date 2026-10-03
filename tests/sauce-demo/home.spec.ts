@@ -75,4 +75,21 @@ test.describe('Sauce-Demo-Home', () => {
         await addCart.click();
     });
 
+    //Noir Jacket
+    test('Noir Jacket Product', async ({ page }) => {
+        await page.getByAltText("Noir jacket").click()
+
+    //assertion
+        await expect(page.getByRole("heading", { name: "Noir jacket"})).toBeVisible();
+        await expect(page.locator(".product-price")).toBeVisible();
+
+    //Verify Dropdown
+        await page.locator("#product-select-option-0").selectOption("L");
+        await page.locator("#product-select-option-1").selectOption("Blue");
+
+        await page.locator("#add").click();
+    })
+
+    
+
 });
