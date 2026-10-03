@@ -87,7 +87,8 @@ test.describe('Sauce-Demo-Home', () => {
         await page.locator("#product-select-option-0").selectOption("L");
         await page.locator("#product-select-option-1").selectOption("Blue");
 
-        await page.locator("#add").click();
+        await page.locator("#add").click();   
+        
     })
 
     
