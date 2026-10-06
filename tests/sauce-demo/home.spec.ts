@@ -89,6 +89,10 @@ test.describe('Sauce-Demo-Home', () => {
 
         await page.locator("#add").click();   
 
+    });
+
+    test('Verify order functionality', async ({ page }) => {
+        await page.getByAltText("Striped top").click();
     })
 
     
