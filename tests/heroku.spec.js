@@ -64,4 +64,15 @@ test('Checkboxes', async ({ page }) => {
     await expect(dropdown).toBeVisible();
     await expect(dropdown).toBeEnabled();
   });
+
+  /*test('Screenshot', async ({ page }) => {
+    await page.getByRole("link", { name: "Form Authentication"}).click();
+    await expect(page).toHaveScreenshot("login.png", {
+      mask: [
+        page.locator("#username"),
+        page.locator("#password")
+      ]
+    });
+  });*/
+
 });
