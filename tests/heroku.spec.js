@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Test', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('https://the-internet.herokuapp.com/');
+    await page.goto('https://the-internet.herokuapp.com/', { waitUntil: 'domcontentloaded' });
     await expect(page).toHaveTitle(/The Internet/);
   });
 

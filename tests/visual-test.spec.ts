@@ -2,7 +2,7 @@ import { test, expect } from '@playwright/test';
 
 test.describe('Visual Test', () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto("https://the-internet.herokuapp.com");
+        await page.goto("https://the-internet.herokuapp.com", { waitUntil: 'domcontentloaded' });
     });
 
     test('Visual Test Login', async ({ page }) => {
