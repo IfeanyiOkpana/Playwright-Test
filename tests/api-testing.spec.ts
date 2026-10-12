@@ -10,6 +10,8 @@ test.describe("API Testing", () => {
         expect(body.data.email).toBe("janet.weaver@reqres.in")
         expect(body.data.first_name).toBe("Janet");
         expect(body.data.last_name).toBe("Weaver");
+
+       
     });
 
    
