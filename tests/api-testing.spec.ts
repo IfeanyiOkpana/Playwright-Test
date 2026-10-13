@@ -29,5 +29,23 @@ test.describe("API Testing", () => {
         expect(body.support.text).toBe("Become a better CTO. A playbook of painful stories and practical advice from a two-time startup CTO.");   
     });
 
+    test('POST create user', async ({ request }) => {
+        const newUser = { name: "john", job: "leader" };
+
+        const response = await request.post("https://reqres.in/api/users", {
+            data: newUser,
+            headers: {
+                'x-api-key': 'reqres-free-v1'
+            }
+        });
+
+        const body = await response.json();
+        
+        expect(response.status()).toBe(201);
+        expect(body.name).toBe(newUser.name);
+        expect(body.job).toBe(newUser.job);
+
+    });
+
   
 });
