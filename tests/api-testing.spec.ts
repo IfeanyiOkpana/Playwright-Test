@@ -59,6 +59,23 @@ test.describe("API Testing", () => {
 
         expect(body.email).toBe(newUser.email);
         expect(body.id).toBe(newUser.id);
+    });
+
+    test('PUT update user', async ({ request }) => {
+        const updatedUser = { name: "Peter", job: "President"};
+        const response = await request.put("https://reqres.in/api/users/2", {
+
+        data: updatedUser,
+        headers: {
+            'x-api-key': 'reqres_1229b145a95d4c9886a8c2aa6b3513c5'
+        }
+        })
+
+        const body = await response.json();
+
+        expect(response.status()).toBe(200);
+        expect(body.name).toBe(updatedUser.name);
+        expect(body.job).toBe(updatedUser.job);
     })
 
   
