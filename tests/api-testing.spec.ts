@@ -10,6 +10,7 @@ test.describe("API Testing", () => {
         expect(body.data.email).toBe("janet.weaver@reqres.in");
         expect(body.data.first_name).toBe("Janet");
         expect(body.data.last_name).toBe("Weaver");
+        expect(body.data.avatar).toBe("https://reqres.in/img/faces/2-image.jpg");
         expect(body.support.url).toBe("https://benhowdle.im/first-cto-playbook?utm_source=reqres&utm_medium=json&utm_campaign=referral");
         expect(body.support.text).toBe("Become a better CTO. A playbook of painful stories and practical advice from a two-time startup CTO.");
 
