@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
+import { herokuFixtureUrl, useHerokuFixture } from './fixtures/heroku-site.js';
 
 test.describe('Test', () => {
   test.beforeEach(async ({ page }) => {
-    await page.goto('https://the-internet.herokuapp.com/', { waitUntil: 'domcontentloaded' });
+    await useHerokuFixture(page);
+    await page.goto(`${herokuFixtureUrl}/`);
     await expect(page).toHaveTitle(/The Internet/);
   });
 
@@ -12,7 +14,7 @@ test('Add/Remove Elements', async ({ page }) => {
   await page.getByRole('button', { name: "Delete"}).click();
 
   await expect(page.getByRole('heading', { name: "Add/Remove Elements"})).toBeVisible();
-  await expect(page).toHaveURL('https://the-internet.herokuapp.com/add_remove_elements/');
+  await expect(page).toHaveURL(`${herokuFixtureUrl}/add_remove_elements/`);
 });
 
 test('Checkboxes', async ({ page }) => {
@@ -31,7 +33,7 @@ test('Checkboxes', async ({ page }) => {
 
   await expect(header1).toBeVisible()
 
-  await expect(page).toHaveURL('https://the-internet.herokuapp.com/checkboxes');
+  await expect(page).toHaveURL(`${herokuFixtureUrl}/checkboxes`);
 });
 
   test('Drag and Drop', async ({ page }) => {

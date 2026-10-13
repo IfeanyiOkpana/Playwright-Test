@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
+import { demoQaFixtureUrl, useDemoQaFixture } from '../fixtures/demoqa-site.js';
 
 test.describe('Forms', () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto('https://demoqa.com/automation-practice-form');
+        await useDemoQaFixture(page);
+        await page.goto(`${demoQaFixtureUrl}/automation-practice-form`);
     });
 
     test('Test Form Functionality', async ({ page }) => {

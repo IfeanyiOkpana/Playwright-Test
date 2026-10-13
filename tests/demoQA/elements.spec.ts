@@ -1,8 +1,10 @@
 import { test, expect } from '@playwright/test';
+import { demoQaFixtureUrl, useDemoQaFixture } from '../fixtures/demoqa-site.js';
 
 test.describe('Elements', () => {
     test.beforeEach(async ({ page }) => {
-        await page.goto('https://demoqa.com/text-box');
+        await useDemoQaFixture(page);
+        await page.goto(`${demoQaFixtureUrl}/text-box`);
     });
     test('Test Text Box', async ({ page }) => {
         const fname = page.locator('#userName');
