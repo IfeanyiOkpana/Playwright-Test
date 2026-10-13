@@ -47,5 +47,19 @@ test.describe("API Testing", () => {
 
     });
 
+    test('POST create user2', async ({ request }) => {
+        const newUser = { email: "eve.holt@reqres.in", id: "26"}
+        const response = await request.post("https://reqres.in/api/users",{
+            data: newUser,
+            headers: {
+                'x-api-key': 'reqres_1229b145a95d4c9886a8c2aa6b3513c5'
+            }
+        });
+        const body = await response.json();
+
+        expect(body.email).toBe(newUser.email);
+        expect(body.id).toBe(newUser.id);
+    })
+
   
 });
